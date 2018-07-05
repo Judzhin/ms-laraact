@@ -14,8 +14,11 @@
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
+        "msbios/debug": "^1.0",
+        "msbios/test": "^1.0",
         "nunomaduro/collision": "^2.0",
-        "phpunit/phpunit": "^7.0"
+        "phpunit/phpunit": "^7.0",
+        "squizlabs/php_codesniffer": "^3.3"
     },
     "autoload": {
         "classmap": [
@@ -49,7 +52,16 @@
             "@php artisan package:discover"
         ],
         "serve": "php -S 0.0.0.0:3107 public/index.php",
-        "artisan": "php artisan help"
+        "artisan": "php artisan help",
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "test": [
+            "@cs-check",
+            "phpunit --colors=always"
+        ],
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
+        "upload-coverage": "coveralls -v",
+        "commit": "git add . && git commit -a -m \"Lazy Composer Commiter\" && git push"
     },
     "config": {
         "preferred-install": "dist",
