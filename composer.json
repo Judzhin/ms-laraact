@@ -51,7 +51,7 @@
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
         ],
-        "serve": "php -S 0.0.0.0:3107 public/index.php",
+        "serve": "php artisan serve",
         "artisan": "php artisan help",
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
