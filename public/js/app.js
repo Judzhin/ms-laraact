@@ -56022,6 +56022,52 @@ var Products = function (_Component) {
             });
         }
     }, {
+        key: "handleUpdateProduct",
+        value: function handleUpdateProduct(product) {
+            var _this5 = this;
+
+            var currentProduct = this.state.currentProduct;
+            fetch('api/products/' + currentProduct.id, {
+                method: 'put',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(product)
+            }).then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                /* Updating the state */
+                var array = _this5.state.products.filter(function (item) {
+                    return item !== currentProduct;
+                });
+                _this5.setState(function (prevState) {
+                    return {
+                        products: array.concat(product),
+                        currentProduct: product
+                    };
+                });
+            });
+        }
+    }, {
+        key: "handleDeleteProduct",
+        value: function handleDeleteProduct() {
+            var _this6 = this;
+
+            var currentProduct = this.state.currentProduct;
+            fetch('api/products/' + this.state.currentProduct.id, {
+                method: 'delete'
+            }).then(function (response) {
+
+                /* Duplicate the array and filter out the item to be deleted */
+                var array = _this6.state.products.filter(function (item) {
+                    return item !== currentProduct;
+                });
+
+                _this6.setState({ products: array, currentProduct: null });
+            });
+        }
+    }, {
         key: "render",
         value: function render() {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(

@@ -5,7 +5,6 @@ import AddProduct from "./AddProduct";
 
 export default class Products extends Component {
 
-
     constructor() {
 
         super();
@@ -52,8 +51,8 @@ export default class Products extends Component {
 
         product.price = Number(product.price);
         /*Fetch API for post request */
-        fetch( 'api/products/', {
-            method:'post',
+        fetch('api/products/', {
+            method: 'post',
             /* headers are important*/
             headers: {
                 'Accept': 'application/json',
@@ -65,13 +64,55 @@ export default class Products extends Component {
             .then(response => {
                 return response.json();
             })
-            .then( data => {
+            .then(data => {
                 //update the state of products and currentProduct
-                this.setState((prevState)=> ({
+                this.setState((prevState) => ({
                     products: prevState.products.concat(data),
-                    currentProduct : data
+                    currentProduct: data
                 }))
             })
+    }
+
+    handleUpdateProduct(product) {
+
+        const currentProduct = this.state.currentProduct;
+        fetch('api/products/' + currentProduct.id, {
+            method: 'put',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(product)
+        })
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                /* Updating the state */
+                var array = this.state.products.filter(function (item) {
+                    return item !== currentProduct
+                })
+                this.setState((prevState) => ({
+                    products: array.concat(product),
+                    currentProduct: product
+                }))
+            })
+    }
+
+    handleDeleteProduct() {
+        const currentProduct = this.state.currentProduct;
+        fetch('api/products/' + this.state.currentProduct.id, {
+            method: 'delete'
+        }).then(response => {
+
+            /* Duplicate the array and filter out the item to be deleted */
+            var array = this.state.products.filter(function (item) {
+                return item !== currentProduct
+            });
+
+            this.setState({products: array, currentProduct: null});
+
+        });
     }
 
     render() {
@@ -97,7 +138,7 @@ export default class Products extends Component {
                     </div>
 
                     <div className="col-md-8">
-                        <AddProduct onAdd={this.handleAddProduct.bind(this)} />
+                        <AddProduct onAdd={this.handleAddProduct.bind(this)}/>
                         <Product product={this.state.currentProduct}/>
                     </div>
                 </div>
