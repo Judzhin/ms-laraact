@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import Product from "./Product";
 import AddProduct from "./AddProduct";
 
-export default class Example extends Component {
+export default class Products extends Component {
 
 
     constructor() {
@@ -37,7 +37,7 @@ export default class Example extends Component {
                 //this.handleClick() method is invoked onClick.
                 <li onClick={
                     () => this.handleClick(product)} key={product.id}>
-                    { product.title }
+                    { product.description }
                 </li>
             );
         })
@@ -46,15 +46,14 @@ export default class Example extends Component {
     handleClick(product) {
         //handleClick is used to set the state
         this.setState({currentProduct: product});
-
     }
 
     handleAddProduct(product) {
 
         product.price = Number(product.price);
         /*Fetch API for post request */
-        fetch('api/products/', {
-            method: 'post',
+        fetch( 'api/products/', {
+            method:'post',
             /* headers are important*/
             headers: {
                 'Accept': 'application/json',
@@ -66,14 +65,13 @@ export default class Example extends Component {
             .then(response => {
                 return response.json();
             })
-            .then(data => {
+            .then( data => {
                 //update the state of products and currentProduct
-                this.setState((prevState) => ({
+                this.setState((prevState)=> ({
                     products: prevState.products.concat(data),
-                    currentProduct: data
+                    currentProduct : data
                 }))
             })
-
     }
 
     render() {
@@ -99,6 +97,7 @@ export default class Example extends Component {
                     </div>
 
                     <div className="col-md-8">
+                        <AddProduct onAdd={this.handleAddProduct.bind(this)} />
                         <Product product={this.state.currentProduct}/>
                     </div>
                 </div>
@@ -108,5 +107,5 @@ export default class Example extends Component {
 }
 
 if (document.getElementById('example')) {
-    ReactDOM.render(<Example />, document.getElementById('example'));
+    ReactDOM.render(<Products />, document.getElementById('example'));
 }

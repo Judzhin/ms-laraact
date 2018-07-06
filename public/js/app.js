@@ -70,7 +70,7 @@
 "use strict";
 
 
-var bind = __webpack_require__(6);
+var bind = __webpack_require__(7);
 var isBuffer = __webpack_require__(25);
 
 /*global toString:true*/
@@ -397,10 +397,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(7);
+    adapter = __webpack_require__(8);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(7);
+    adapter = __webpack_require__(8);
   }
   return adapter;
 }
@@ -484,6 +484,20 @@ module.exports = defaults;
 "use strict";
 
 
+if (false) {
+  module.exports = require('./cjs/react.production.min.js');
+} else {
+  module.exports = __webpack_require__(44);
+}
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -520,7 +534,7 @@ emptyFunction.thatReturnsArgument = function (arg) {
 module.exports = emptyFunction;
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports) {
 
 var g;
@@ -547,7 +561,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3073,10 +3087,10 @@ Popper.Defaults = Defaults;
 /* harmony default export */ __webpack_exports__["default"] = (Popper);
 //# sourceMappingURL=popper.js.map
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(3)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(4)))
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -13447,7 +13461,7 @@ return jQuery;
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13465,7 +13479,7 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13476,7 +13490,7 @@ var settle = __webpack_require__(29);
 var buildURL = __webpack_require__(31);
 var parseHeaders = __webpack_require__(32);
 var isURLSameOrigin = __webpack_require__(33);
-var createError = __webpack_require__(8);
+var createError = __webpack_require__(9);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(34);
 
 module.exports = function xhrAdapter(config) {
@@ -13652,7 +13666,7 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13677,7 +13691,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13689,7 +13703,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13712,20 +13726,6 @@ Cancel.prototype.toString = function toString() {
 Cancel.prototype.__CANCEL__ = true;
 
 module.exports = Cancel;
-
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-if (false) {
-  module.exports = require('./cjs/react.production.min.js');
-} else {
-  module.exports = __webpack_require__(44);
-}
 
 
 /***/ }),
@@ -13922,7 +13922,7 @@ module.exports = emptyObject;
 
 
 
-var emptyFunction = __webpack_require__(2);
+var emptyFunction = __webpack_require__(3);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -14078,7 +14078,7 @@ module.exports = checkPropTypes;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(18);
-module.exports = __webpack_require__(58);
+module.exports = __webpack_require__(60);
 
 
 /***/ }),
@@ -14100,7 +14100,7 @@ __webpack_require__(19);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-__webpack_require__(43);
+__webpack_require__(65);
 
 /***/ }),
 /* 19 */
@@ -14108,7 +14108,7 @@ __webpack_require__(43);
 
 
 window._ = __webpack_require__(20);
-window.Popper = __webpack_require__(4).default;
+window.Popper = __webpack_require__(5).default;
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -14117,7 +14117,7 @@ window.Popper = __webpack_require__(4).default;
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(5);
+  window.$ = window.jQuery = __webpack_require__(6);
 
   __webpack_require__(22);
 } catch (e) {}
@@ -31274,7 +31274,7 @@ if (token) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(21)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(21)(module)))
 
 /***/ }),
 /* 21 */
@@ -31314,7 +31314,7 @@ module.exports = function(module) {
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
 (function (global, factory) {
-   true ? factory(exports, __webpack_require__(5), __webpack_require__(4)) :
+   true ? factory(exports, __webpack_require__(6), __webpack_require__(5)) :
   typeof define === 'function' && define.amd ? define(['exports', 'jquery', 'popper.js'], factory) :
   (factory((global.bootstrap = {}),global.jQuery,global.Popper));
 }(this, (function (exports,$,Popper) { 'use strict';
@@ -35251,7 +35251,7 @@ module.exports = __webpack_require__(24);
 
 
 var utils = __webpack_require__(0);
-var bind = __webpack_require__(6);
+var bind = __webpack_require__(7);
 var Axios = __webpack_require__(26);
 var defaults = __webpack_require__(1);
 
@@ -35286,9 +35286,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(10);
+axios.Cancel = __webpack_require__(11);
 axios.CancelToken = __webpack_require__(41);
-axios.isCancel = __webpack_require__(9);
+axios.isCancel = __webpack_require__(10);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -35631,7 +35631,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 "use strict";
 
 
-var createError = __webpack_require__(8);
+var createError = __webpack_require__(9);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -36064,7 +36064,7 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(38);
-var isCancel = __webpack_require__(9);
+var isCancel = __webpack_require__(10);
 var defaults = __webpack_require__(1);
 var isAbsoluteURL = __webpack_require__(39);
 var combineURLs = __webpack_require__(40);
@@ -36224,7 +36224,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 "use strict";
 
 
-var Cancel = __webpack_require__(10);
+var Cancel = __webpack_require__(11);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -36316,183 +36316,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 43 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Product__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__AddProduct__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__AddProduct___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__AddProduct__);
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-
-var Example = function (_Component) {
-    _inherits(Example, _Component);
-
-    function Example() {
-        _classCallCheck(this, Example);
-
-        //Initialize the state in the constructor
-        var _this = _possibleConstructorReturn(this, (Example.__proto__ || Object.getPrototypeOf(Example)).call(this));
-
-        _this.state = {
-            products: [],
-            currentProduct: null
-        };
-        return _this;
-    }
-
-    /*componentDidMount() is a lifecycle method
-     * that gets called after the component is rendered
-     */
-
-
-    _createClass(Example, [{
-        key: "componentDidMount",
-        value: function componentDidMount() {
-            var _this2 = this;
-
-            /* fetch API in action */
-            fetch('/api/products').then(function (response) {
-                return response.json();
-            }).then(function (products) {
-                //Fetched product is stored in the state
-                _this2.setState({ products: products });
-            });
-        }
-    }, {
-        key: "renderProducts",
-        value: function renderProducts() {
-            var _this3 = this;
-
-            return this.state.products.map(function (product) {
-                return (
-                    //this.handleClick() method is invoked onClick.
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "li",
-                        { onClick: function onClick() {
-                                return _this3.handleClick(product);
-                            }, key: product.id },
-                        product.title
-                    )
-                );
-            });
-        }
-    }, {
-        key: "handleClick",
-        value: function handleClick(product) {
-            //handleClick is used to set the state
-            this.setState({ currentProduct: product });
-        }
-    }, {
-        key: "handleAddProduct",
-        value: function handleAddProduct(product) {
-            var _this4 = this;
-
-            product.price = Number(product.price);
-            /*Fetch API for post request */
-            fetch('api/products/', {
-                method: 'post',
-                /* headers are important*/
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-
-                body: JSON.stringify(product)
-            }).then(function (response) {
-                return response.json();
-            }).then(function (data) {
-                //update the state of products and currentProduct
-                _this4.setState(function (prevState) {
-                    return {
-                        products: prevState.products.concat(data),
-                        currentProduct: data
-                    };
-                });
-            });
-        }
-    }, {
-        key: "render",
-        value: function render() {
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "container" },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    { className: "row justify-content-center" },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "div",
-                        { className: "col-md-8" },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            "div",
-                            { className: "card" },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                "div",
-                                { className: "card-header" },
-                                "Example Component"
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                "div",
-                                { className: "card-body" },
-                                "I'm an example component!"
-                            )
-                        )
-                    )
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    { className: "row", style: { padding: 20 } },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "div",
-                        { className: "col-md-4" },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            "h3",
-                            null,
-                            " All products "
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            "ul",
-                            null,
-                            this.renderProducts()
-                        )
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "div",
-                        { className: "col-md-8" },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Product__["a" /* default */], { product: this.state.currentProduct })
-                    )
-                )
-            );
-        }
-    }]);
-
-    return Example;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
-
-/* harmony default export */ __webpack_exports__["default"] = (Example);
-
-
-if (document.getElementById('example')) {
-    __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Example, null), document.getElementById('example'));
-}
-
-/***/ }),
+/* 43 */,
 /* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -36518,7 +36342,7 @@ var _assign = __webpack_require__(12);
 var invariant = __webpack_require__(13);
 var emptyObject = __webpack_require__(14);
 var warning = __webpack_require__(15);
-var emptyFunction = __webpack_require__(2);
+var emptyFunction = __webpack_require__(3);
 var checkPropTypes = __webpack_require__(16);
 
 // TODO: this is special because it gets imported during build.
@@ -38072,11 +37896,11 @@ if (true) {
 'use strict';
 
 var invariant = __webpack_require__(13);
-var React = __webpack_require__(11);
+var React = __webpack_require__(2);
 var warning = __webpack_require__(15);
 var ExecutionEnvironment = __webpack_require__(48);
 var _assign = __webpack_require__(12);
-var emptyFunction = __webpack_require__(2);
+var emptyFunction = __webpack_require__(3);
 var checkPropTypes = __webpack_require__(16);
 var getActiveElement = __webpack_require__(49);
 var shallowEqual = __webpack_require__(50);
@@ -55895,20 +55719,10 @@ module.exports = camelize;
 
 /***/ }),
 /* 58 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 
 
@@ -55970,79 +55784,308 @@ var Product = function Product(_ref) {
 /* harmony default export */ __webpack_exports__["a"] = (Product);
 
 /***/ }),
-/* 64 */
+/* 59 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+var AddProduct = function (_Component) {
+    _inherits(AddProduct, _Component);
+
+    function AddProduct(props) {
+        _classCallCheck(this, AddProduct);
+
+        /* Initialize the state. */
+        var _this = _possibleConstructorReturn(this, (AddProduct.__proto__ || Object.getPrototypeOf(AddProduct)).call(this, props));
+
+        _this.state = {
+            newProduct: {
+                title: '',
+                description: '',
+                price: 0,
+                availability: 0
+            }
+
+            //Boilerplate code for binding methods with `this`
+        };_this.handleSubmit = _this.handleSubmit.bind(_this);
+        _this.handleInput = _this.handleInput.bind(_this);
+        return _this;
+    }
+
+    /* This method dynamically accepts inputs and stores it in the state */
+
+
+    _createClass(AddProduct, [{
+        key: 'handleInput',
+        value: function handleInput(key, e) {
+
+            /*Duplicating and updating the state */
+            var state = Object.assign({}, this.state.newProduct);
+            state[key] = e.target.value;
+            this.setState({ newProduct: state });
+        }
+
+        /* This method is invoked when submit button is pressed */
+
+    }, {
+        key: 'handleSubmit',
+        value: function handleSubmit(e) {
+            //preventDefault prevents page reload
+            e.preventDefault();
+            /*A call back to the onAdd props. The current
+             *state is passed as a param
+             */
+            this.props.onAdd(this.state.newProduct);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            var divStyle = {
+                /*Code omitted for brevity */
+            };
+
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'h2',
+                    null,
+                    ' Add new product '
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { style: divStyle },
+                    '/*when Submit button is pressed, the control is passed to *handleSubmit method */',
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'form',
+                        { onSubmit: this.handleSubmit },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'label',
+                            null,
+                            ' Title:',
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', onChange: function onChange(e) {
+                                    return _this2.handleInput('title', e);
+                                } })
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'label',
+                            null,
+                            ' Description:',
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', onChange: function onChange(e) {
+                                    return _this2.handleInput('description', e);
+                                } })
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'submit', value: 'Submit' })
+                    )
+                )
+            );
+        }
+    }]);
+
+    return AddProduct;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (AddProduct);
+
+/***/ }),
+/* 60 */
 /***/ (function(module, exports) {
 
-// class AddProduct extends Component {
-//
-//     constructor(props) {
-//         super(props);
-//         /* Initialize the state. */
-//         this.state = {
-//             newProduct: {
-//                 title: '',
-//                 description: '',
-//                 price: 0,
-//                 availability: 0
-//             }
-//         }
-//
-//         //Boilerplate code for binding methods with `this`
-//         this.handleSubmit = this.handleSubmit.bind(this);
-//         this.handleInput = this.handleInput.bind(this);
-//     }
-//
-//     /* This method dynamically accepts inputs and stores it in the state */
-//     handleInput(key, e) {
-//
-//         /*Duplicating and updating the state */
-//         var state = Object.assign({}, this.state.newProduct);
-//         state[key] = e.target.value;
-//         this.setState({newProduct: state});
-//     }
-//
-//     /* This method is invoked when submit button is pressed */
-//     handleSubmit(e) {
-//         //preventDefault prevents page reload
-//         e.preventDefault();
-//         /*A call back to the onAdd props. The current
-//          *state is passed as a param
-//          */
-//         this.props.onAdd(this.state.newProduct);
-//     }
-//
-//     render() {
-//         const divStyle = {
-//             /*Code omitted for brevity */
-//         }
-//
-//         return (
-//             <div>
-//                 <h2> Add new product </h2>
-//                 <div style={divStyle}>
-//                     /*when Submit button is pressed, the control is passed to
-//                      *handleSubmit method
-//                      */
-//                     <form onSubmit={this.handleSubmit}>
-//                         <label> Title:
-//                             { /*On every keystroke, the handeInput method is invoked */ }
-//                             <input type="text" onChange={(e) => this.handleInput('title', e)}/>
-//                         </label>
-//
-//                         <label> Description:
-//                             <input type="text" onChange={(e) => this.handleInput('description', e)}/>
-//                         </label>
-//
-//                         { /* Input fields for Price and availability omitted for brevity */}
-//
-//                         <input type="submit" value="Submit"/>
-//                     </form>
-//                 </div>
-//             </div>)
-//     }
-// }
-//
-// export default AddProduct;
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Product__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__AddProduct__ = __webpack_require__(59);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+var Products = function (_Component) {
+    _inherits(Products, _Component);
+
+    function Products() {
+        _classCallCheck(this, Products);
+
+        //Initialize the state in the constructor
+        var _this = _possibleConstructorReturn(this, (Products.__proto__ || Object.getPrototypeOf(Products)).call(this));
+
+        _this.state = {
+            products: [],
+            currentProduct: null
+        };
+        return _this;
+    }
+
+    /*componentDidMount() is a lifecycle method
+     * that gets called after the component is rendered
+     */
+
+
+    _createClass(Products, [{
+        key: "componentDidMount",
+        value: function componentDidMount() {
+            var _this2 = this;
+
+            /* fetch API in action */
+            fetch('/api/products').then(function (response) {
+                return response.json();
+            }).then(function (products) {
+                //Fetched product is stored in the state
+                _this2.setState({ products: products });
+            });
+        }
+    }, {
+        key: "renderProducts",
+        value: function renderProducts() {
+            var _this3 = this;
+
+            return this.state.products.map(function (product) {
+                return (
+                    //this.handleClick() method is invoked onClick.
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "li",
+                        { onClick: function onClick() {
+                                return _this3.handleClick(product);
+                            }, key: product.id },
+                        product.description
+                    )
+                );
+            });
+        }
+    }, {
+        key: "handleClick",
+        value: function handleClick(product) {
+            //handleClick is used to set the state
+            this.setState({ currentProduct: product });
+        }
+    }, {
+        key: "handleAddProduct",
+        value: function handleAddProduct(product) {
+            var _this4 = this;
+
+            product.price = Number(product.price);
+            /*Fetch API for post request */
+            fetch('api/products/', {
+                method: 'post',
+                /* headers are important*/
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+
+                body: JSON.stringify(product)
+            }).then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                //update the state of products and currentProduct
+                _this4.setState(function (prevState) {
+                    return {
+                        products: prevState.products.concat(data),
+                        currentProduct: data
+                    };
+                });
+            });
+        }
+    }, {
+        key: "render",
+        value: function render() {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "div",
+                { className: "container" },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "div",
+                    { className: "row justify-content-center" },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "div",
+                        { className: "col-md-8" },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "div",
+                            { className: "card" },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "div",
+                                { className: "card-header" },
+                                "Example Component"
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                "div",
+                                { className: "card-body" },
+                                "I'm an example component!"
+                            )
+                        )
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "div",
+                    { className: "row", style: { padding: 20 } },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "div",
+                        { className: "col-md-4" },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "h3",
+                            null,
+                            " All products "
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "ul",
+                            null,
+                            this.renderProducts()
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "div",
+                        { className: "col-md-8" },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__AddProduct__["a" /* default */], { onAdd: this.handleAddProduct.bind(this) }),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Product__["a" /* default */], { product: this.state.currentProduct })
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Products;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Products);
+
+
+if (document.getElementById('example')) {
+    __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Products, null), document.getElementById('example'));
+}
 
 /***/ })
 /******/ ]);
